@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><fullcycle>
+	<parent-path>/</parent-path>
+	<scenarios/>
+	<commands/>
+	<messages/>
+	<scenario-skeleton>
+		<parameters>
+			<convId>CONV_ID</convId>
+		</parameters>
+		<scenario>
+		</scenario>
+	</scenario-skeleton>
+	<robot-skeleton>
+		<parameters>
+			<userId>USER_ID</userId>
+		</parameters>
+		<robot>
+		</robot>
+	</robot-skeleton>
+</fullcycle>

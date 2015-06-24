@@ -1,0 +1,121 @@
+<take-conversation-and-publish>
+	<parent-path>fullcycle/scenarios/</parent-path>
+	<default>fullcycle/scenario-skeleton</default>
+	<scenario>
+		<conversation-owner>
+			<default>fullcycle/robot-skeleton</default>
+			<robot>
+				<consumerconnect-1>
+					<default>fullcycle/commands/command-repository/consumerconnect</default>
+				</consumerconnect-1>
+				<sleep-2>2000</sleep-2>
+				<receive-3>
+					<new-user-id>
+						<default>fullcycle/messages/message-repository/new-user-id</default>
+					</new-user-id>
+				</receive-3>
+				<send-4>
+					<request-new-conversation>
+						<default>fullcycle/messages/message-repository/request-new-conversation</default>	
+					</request-new-conversation>
+				</send-4>
+				<receive-5>
+					<conversation-created>
+						<default>fullcycle/messages/message-repository/conversation-created</default>
+					</conversation-created>
+				</receive-5>
+				<send-6>
+					<message-publish>
+						<default>fullcycle/messages/message-repository/message-publish</default>
+						<payload>
+							<message>Hello I am conversation owner :)</message>
+						</payload>
+					</message-publish>
+				</send-6>
+				<receive-7>
+					<message-distribute-message-publish>
+						<default>fullcycle/messages/message-repository/message-distribute-message-publish</default>
+						<payload>
+							<origPayload>
+								<message>Hello I am conversation owner :)</message>
+							</origPayload>	
+						</payload>
+					</message-distribute-message-publish>
+					<good-general-response>
+						<default>fullcycle/messages/message-repository/good-general-response</default>
+						<status>MCCA event sent</status>
+					</good-general-response>
+				</receive-7>
+				<sleep-8>1000</sleep-8>
+				<receive-9>
+					<message-distribute>
+						<default>fullcycle/messages/message-repository/message-distribute</default>
+						<payload>
+							<origPayload>
+								<message>"Hello I am agent :)"</message>
+							</origPayload>	
+						</payload>
+					</message-distribute>
+				</receive-9>
+			</robot>	
+		</conversation-owner>
+		<conversation-agent>
+			<default>fullcycle/robot-skeleton</default>
+			<robot>	
+				<agentconnect-1>
+					<default>fullcycle/commands/command-repository/agentconnect</default>
+				</agentconnect-1>
+				<sleep-2>2000</sleep-2>
+				<receive-3>
+					<new-user-id>
+						<default>fullcycle/messages/message-repository/new-user-id</default>
+					</new-user-id>
+					<conversation-notification>
+						<default>fullcycle/messages/message-repository/conversation-notification</default>
+					</conversation-notification>
+				</receive-3>
+				<send-4>
+					<take-conversation>
+						<default>fullcycle/messages/message-repository/take-conversation</default>
+					</take-conversation>
+				</send-4>
+				<receive-5>
+					<good-general-response>
+						<default>fullcycle/messages/message-repository/good-general-response</default>
+						<status>OK, Conversation taken</status>
+					</good-general-response>
+					<message-distribute-message-publish>
+						<default>fullcycle/messages/message-repository/message-distribute-message-publish</default>
+						<payload>
+							<origPayload>
+								<message>Hello I am conversation owner :)</message>
+							</origPayload>	
+						</payload>
+					</message-distribute-message-publish>
+				</receive-5>
+				<send-6>
+					<message-publish>
+						<default>fullcycle/messages/message-repository/message-publish</default>
+						<payload>
+							<message>Hello I am agent :)</message>
+						</payload>
+					</message-publish>
+				</send-6>
+				<receive-7>
+					<message-distribute-message-publish>
+						<default>fullcycle/messages/message-repository/message-distribute-message-publish</default>
+						<payload>
+							<origPayload>
+								<message>Hello I am agent :)</message>
+							</origPayload>	
+						</payload>
+					</message-distribute-message-publish>
+					<good-general-response>
+						<default>fullcycle/messages/message-repository/good-general-response</default>
+						<status>MCCA event sent</status>
+					</good-general-response>
+				</receive-7>	
+			</robot>	
+		</conversation-agent>
+	</scenario>	
+</take-conversation-and-publish>

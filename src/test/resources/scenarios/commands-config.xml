@@ -1,0 +1,12 @@
+<command-repository>
+	<parent-path>fullcycle/commands/</parent-path>
+	<agentconnect>
+		<uri>ws://localhost:8080/api/messaging/ws/1/brand/</uri>
+		<brand>1</brand>
+	</agentconnect>
+	<consumerconnect>
+		<uri>ws://localhost:8080/api/messaging/ws/1/consumer/</uri>
+	</consumerconnect>
+	<sleep>
+	</sleep>
+</command-repository>
